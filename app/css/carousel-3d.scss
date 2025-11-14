@@ -1,0 +1,575 @@
+/* ============================================
+   CAROUSEL 3D CYLINDRIQUE - STYLES
+   ============================================ */
+
+// Variables
+$carousel-height: 500px;
+$carousel-perspective: 1200px;
+$card-max-width: 350px;
+$transition-duration: 0.8s;
+$transition-timing: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// Breakpoints
+@media (max-width: 1024px) {
+  $carousel-height: 350px;
+  $carousel-perspective: 1000px;
+  $card-max-width: 300px;
+}
+
+@media (max-width: 640px) {
+  $carousel-height: 300px;
+  $carousel-perspective: 800px;
+  $card-max-width: 250px;
+}
+
+/* ============================================
+   CONTENEUR 3D PRINCIPAL
+   ============================================ */
+
+.carousel-3d-container {
+  position: relative;
+  width: 100%;
+  height: $carousel-height;
+  perspective: $carousel-perspective;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1024px) {
+    height: 350px;
+    perspective: 1000px;
+  }
+
+  @media (max-width: 640px) {
+    height: 300px;
+    perspective: 800px;
+  }
+}
+
+/* ============================================
+   WRAPPER 3D - PRESERVE DEPTH
+   ============================================ */
+
+.carousel-3d-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* ============================================
+   CYLINDRE ROTATIF - LE CŒUR
+   ============================================ */
+
+.carousel-3d-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateY(var(--rotation-angle, 0deg));
+  transition: transform $transition-duration $transition-timing;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+  margin-left: -50%;
+  margin-top: -50%;
+}
+
+/* ============================================
+   ITEMS DU CYLINDRE - CARTES
+   ============================================ */
+
+.carousel-3d-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+
+  // Rayon grand cylindre pour immersion
+  // Grande valeur de translateZ = cylindre à grand rayon
+  $cylinder-radius: 400px;
+
+  // Calcul position en fonction du data-position
+  &[data-position="0"] {
+    // CENTRE - Projet actuel
+    --position: 0;
+    
+    z-index: 10;
+    opacity: 1;
+    filter: brightness(1.1) blur(0px);
+
+    .carousel-3d-item-content {
+      transform: scale(1);
+      box-shadow: 0 0 50px rgba(107, 114, 128, 0.3),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  // ADJACENT GAUCHE ET DROIT (-1 et +1)
+  &[data-position="-1"],
+  &[data-position="1"] {
+    z-index: 5;
+    opacity: 0.7;
+    filter: brightness(0.9) blur(2px);
+
+    .carousel-3d-item-content {
+      transform: scale(0.85);
+      box-shadow: 0 0 30px rgba(107, 114, 128, 0.15);
+    }
+  }
+
+  // LOIN (-2 et +2)
+  &[data-position="-2"],
+  &[data-position="2"] {
+    z-index: 3;
+    opacity: 0.4;
+    filter: brightness(0.7) blur(4px);
+
+    .carousel-3d-item-content {
+      transform: scale(0.7);
+      box-shadow: 0 0 20px rgba(107, 114, 128, 0.05);
+    }
+  }
+
+  // TRÈS LOIN (-3, +3 et au-delà)
+  &[data-position="-3"],
+  &[data-position="3"],
+  &[data-position*="-"],
+  &[data-position*="+"] {
+    &:nth-child(n + 5) {
+      display: none;
+    }
+  }
+}
+
+/* ============================================
+   CONTENU DE LA CARTE 3D
+   ============================================ */
+
+.carousel-3d-item-content {
+  width: 90%;
+  max-width: $card-max-width;
+  height: auto;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out,
+              box-shadow 0.3s ease-out,
+              background 0.3s ease-out;
+
+  @media (max-width: 640px) {
+    max-width: 250px;
+    padding: 16px;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #323232 0%, #242424 100%);
+  }
+}
+
+/* ============================================
+   EN-TÊTE DE CARTE (Dots navigateur)
+   ============================================ */
+
+.carousel-3d-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #3a3a3a;
+
+  .browser-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    
+    &.red { background-color: #ef4444; }
+    &.yellow { background-color: #eab308; }
+    &.green { background-color: #22c55e; }
+  }
+
+  .project-title {
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: 600;
+    color: #d4d4d4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* ============================================
+   BODY DE CARTE (Infos projet)
+   ============================================ */
+
+.carousel-3d-body {
+  margin-bottom: 16px;
+
+  .project-role {
+    font-size: 12px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .project-description {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #9ca3af;
+    margin-bottom: 12px;
+  }
+
+  .project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .tech-tag {
+      display: inline-block;
+      background: rgba(107, 114, 128, 0.2);
+      color: #6b7280;
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid rgba(107, 114, 128, 0.3);
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(107, 114, 128, 0.4);
+        border-color: rgba(107, 114, 128, 0.5);
+      }
+    }
+  }
+}
+
+/* ============================================
+   FOOTER DE CARTE (Boutons)
+   ============================================ */
+
+.carousel-3d-footer {
+  display: flex;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #3a3a3a;
+
+  button {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &:hover {
+      background: rgba(107, 114, 128, 0.2);
+      border-color: #6b7280;
+      color: #d4d4d4;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(107, 114, 128, 0.2);
+    }
+
+    &:active {
+      transform: translateY(0px);
+    }
+
+    svg {
+      display: inline;
+      margin-right: 4px;
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+/* ============================================
+   CONTRÔLES DE NAVIGATION
+   ============================================ */
+
+.carousel-3d-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+
+  @media (max-width: 640px) {
+    gap: 16px;
+    margin-top: 24px;
+  }
+}
+
+.carousel-3d-nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 2px solid #3a3a3a;
+  border-radius: 50%;
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    border-color: #6b7280;
+    background: rgba(107, 114, 128, 0.1);
+    color: #d4d4d4;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(107, 114, 128, 0.3);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    &:hover {
+      transform: scale(1);
+      box-shadow: none;
+    }
+  }
+}
+
+/* ============================================
+   INDICATEURS (Points de navigation)
+   ============================================ */
+
+.carousel-3d-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #3a3a3a;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+
+    &.active {
+      background: #6b7280;
+      border-color: #6b7280;
+      width: 12px;
+      height: 12px;
+    }
+
+    &:hover {
+      border-color: #6b7280;
+      transform: scale(1.2);
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
+
+/* ============================================
+   ANIMATIONS ENTRÉE
+   ============================================ */
+
+@keyframes slideInFrom3D {
+  from {
+    opacity: 0;
+    transform: translateZ(-500px) translateY(50px) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0) translateY(0) scale(1);
+  }
+}
+
+.carousel-3d-item {
+  animation: slideInFrom3D 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+
+  @for $i from 0 through 10 {
+    &:nth-child(#{$i + 1}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .carousel-3d-item-content {
+    max-width: 300px;
+    padding: 20px;
+  }
+
+  .carousel-3d-controls {
+    gap: 24px;
+  }
+
+  .carousel-3d-nav-button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-3d-item-content {
+    max-width: 280px;
+    padding: 16px;
+  }
+
+  .carousel-3d-header {
+    margin-bottom: 12px;
+
+    .project-title {
+      font-size: 12px;
+    }
+  }
+
+  .carousel-3d-body {
+    margin-bottom: 12px;
+
+    .project-description {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-3d-item-content {
+    max-width: 250px;
+    padding: 14px;
+  }
+
+  .carousel-3d-header {
+    margin-bottom: 10px;
+    gap: 6px;
+
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+    }
+
+    .project-title {
+      font-size: 11px;
+    }
+  }
+
+  .carousel-3d-body {
+    margin-bottom: 10px;
+
+    .project-role {
+      font-size: 11px;
+    }
+
+    .project-description {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .project-technologies {
+      gap: 6px;
+
+      .tech-tag {
+        padding: 3px 10px;
+        font-size: 10px;
+      }
+    }
+  }
+
+  .carousel-3d-footer {
+    padding-top: 10px;
+    gap: 8px;
+
+    button {
+      padding: 6px 10px;
+      font-size: 11px;
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+
+  .carousel-3d-controls {
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .carousel-3d-nav-button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .carousel-3d-indicators {
+    gap: 10px;
+
+    button {
+      width: 8px;
+      height: 8px;
+
+      &.active {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+}
+
+/* ============================================
+   UTILITAIRES & ÉTATS SPÉCIAUX
+   ============================================ */
+
+.carousel-3d-hint {
+  text-align: center;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 16px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Fallback pour navigateurs sans support 3D
+@supports not (transform-style: preserve-3d) {
+  .carousel-3d-item {
+    display: none;
+
+    &[data-position="0"] {
+      display: flex;
+    }
+  }
+}

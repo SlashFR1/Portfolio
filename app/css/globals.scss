@@ -1,0 +1,48 @@
+@use "tailwindcss";
+
+:root {
+  /* Couleurs globales - Palette Gris Sobre et Épurée */
+  --foreground-rgb: 212, 212, 212; /* texte gris clair */
+  --color-bg: #1f1f1f; /* fond gris foncé */
+  --color-surface: #2a2a2a; /* surface gris moyen */
+  --color-accent: #6b7280; /* accent gris */
+  --color-border: #3a3a3a; /* bordures gris plus clair */
+  --color-hover: #3d3d3d; /* hover gris intermédiaire */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: var(--color-bg);
+  background-image: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='2' /%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, rgba(107, 114, 128, 0.03) 0%, transparent 50%),
+    linear-gradient(-135deg, rgba(155, 163, 175, 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+#sticky-card-1 {
+  --index: 1;
+}
+
+#sticky-card-2 {
+  --index: 2;
+}
+
+#sticky-card-3 {
+  --index: 3;
+}
+
+#sticky-card-4 {
+  --index: 4;
+}
+
+.sticky-card {
+  // padding-top: calc(var(--index) * 2.5rem);
+  top: calc(var(--index) * 4rem);
+}

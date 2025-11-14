@@ -1,0 +1,102 @@
+.glow-container {
+  --spread: 60;
+}
+
+.glow-card {
+  --active: 0.15;
+  --start: 0;
+  background-color: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  transition: all 0.3s ease;
+}
+
+.glow-card:is(:hover, :focus-visible) {
+  z-index: 2;
+  background-color: #333333;
+  border-color: #6b7280;
+  box-shadow: 0 0 20px rgba(107, 114, 128, 0.1);
+}
+
+.glows {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  filter: blur(calc(var(--blur) * 1px));
+}
+
+.glows::after,
+.glows::before {
+  --alpha: 0;
+  content: "";
+  background: conic-gradient(from 180deg at 50% 70%,
+      #6b7280 0deg,
+      #4b5563 72.0000010728836deg,
+      #6b7280 144.0000021457672deg,
+      #555555 216.00000858306885deg,
+      #6b7280 288.0000042915344deg,
+      #d4d4d4 1turn);
+  background-attachment: fixed;
+  position: absolute;
+  inset: -5px;
+  border: 8px solid transparent;
+  border-radius: 12px;
+  mask: linear-gradient(#0000, #0000),
+    conic-gradient(from calc((var(--start) - (var(--spread) * 0.5)) * 1deg),
+      #000 0deg,
+      #fff,
+      #0000 calc(var(--spread) * 1deg));
+  mask-composite: intersect;
+  mask-clip: padding-box, border-box;
+  opacity: var(--active);
+  transition: opacity 1s;
+}
+
+.glow-card::before {
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  content: "";
+  border-radius: 12px;
+  pointer-events: none;
+  background: #6b7280;
+  background-attachment: fixed;
+  border-radius: 12px;
+  mask: linear-gradient(#0000, #0000),
+    conic-gradient(from calc(((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 1.5)) * 1deg),
+      #ffffff26 0deg,
+      white,
+      #ffffff26 calc(var(--spread) * 2.5deg));
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+  opacity: var(--active);
+  transition: opacity 1s;
+}
+
+.glow-card::after {
+  --bg-size: 100%;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  background: conic-gradient(from 180deg at 50% 70%,
+      #6b7280 0deg,
+      #4b5563 72.0000010728836deg,
+      #6b7280 144.0000021457672deg,
+      #555555 216.00000858306885deg,
+      #6b7280 288.0000042915344deg,
+      #d4d4d4 1turn);
+  background-attachment: fixed;
+  border-radius: 12px;
+  opacity: var(--active, 0);
+  transition: opacity 1s;
+  --alpha: 0;
+  inset: 0;
+  border: 2px solid transparent;
+  mask: linear-gradient(#0000, #0000),
+    conic-gradient(from calc(((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 0.5)) * 1deg),
+      #0000 0deg,
+      #fff,
+      #0000 calc(var(--spread) * 0.5deg));
+  filter: brightness(1.5);
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+}
