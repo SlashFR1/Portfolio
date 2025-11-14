@@ -1,0 +1,10 @@
+# .gitignore file content
+
+# Dépendances Node.js (le plus important)
+node_modules
+
+# Fichiers de construction/cache de Next.js
+.next
+
+# Variables d'environnement secrètes
+.env

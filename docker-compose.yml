@@ -23,7 +23,7 @@ services:
     ports:
       - "3005:3000"
     env_file:
-      - .env
+     - .env
 
 volumes:
   node_modules:
