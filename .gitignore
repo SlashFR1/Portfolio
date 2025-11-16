@@ -1,1 +1,22 @@
-node_modules/
+# Ignorer le cache et les dépendances locales
+node_modules
+npm-debug.log
+yarn-error.log
+.pnpm-store # Si vous utilisez pnpm, comme suggéré par votre RUN pnpm install
+
+# Ignorer les dossiers de build locaux
+build
+dist
+.next # Si vous utilisez Next.js
+
+# Ignorer les fichiers Docker eux-mêmes
+Dockerfile
+Dockerfile.dev
+docker-compose.yml
+.dockerignore
+
+# Ignorer le dossier git
+.git
+
+# Ignorer le fichier d'environnement (si vous le gérez via Docker)
+.env
