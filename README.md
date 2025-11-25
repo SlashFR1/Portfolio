@@ -1,6 +1,12 @@
 # Portfolio
 Passionate and driven Graduate Student currently pursuing a Master of Science in Computer Science and Computer Engineering at ESEO. This profile serves as a repository for my academic work, personal technical projects, and contributions to open source.
 
+<video width="600" controls>
+  <source src="assets/portfolio_video.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la vidéo.
+</video>
+
+
 # Guide: Running the Project with React (Vite)
 
 This document explains how to run this project—originally structured for **Next.js**—using **React + Vite**.
