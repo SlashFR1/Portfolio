@@ -2,7 +2,34 @@
 Passionate and driven Graduate Student currently pursuing a Master of Science in Computer Science and Computer Engineering at ESEO. This profile serves as a repository for my academic work, personal technical projects, and contributions to open source.
 
 <video width="600" controls>
-  <source src="assets/portfolio_video.mp4" type="video/mp4">
+  <source src="assets/portfolio_intro.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la vidéo.
+</video>
+
+# Showing
+
+## Experience
+<video width="600" controls>
+  <source src="assets/portfolio_experience.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la vidéo.
+</video>
+
+## Skills
+<video width="600" controls>
+  <source src="assets/portfolio_skills.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la vidéo.
+</video>
+
+
+## Projects
+<video width="600" controls>
+  <source src="assets/portfolio_Projects.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la vidéo.
+</video>
+
+## Education
+<video width="600" controls>
+  <source src="assets/portfolio_education.mp4" type="video/mp4">
   Votre navigateur ne supporte pas la vidéo.
 </video>
 
