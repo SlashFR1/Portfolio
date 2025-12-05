@@ -14,7 +14,7 @@ Passionate and driven Graduate Student currently pursuing a Master of Science in
 
 ## Projects
 
-![Experience Demo](app/assets/portfolio_Projects.gif)
+![Experience Demo](app/assets/portfolio_projects.gif)
 
 ## Education
 
