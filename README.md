@@ -1,37 +1,25 @@
 # Portfolio
 Passionate and driven Graduate Student currently pursuing a Master of Science in Computer Science and Computer Engineering at ESEO. This profile serves as a repository for my academic work, personal technical projects, and contributions to open source.
 
-<video width="600" controls>
-  <source src="assets/portfolio_intro.mp4" type="video/mp4">
-  Votre navigateur ne supporte pas la vidéo.
-</video>
-
+![Experience Demo](assets/portfolio_intro.gif)
 # Showing
 
 ## Experience
-<video width="600" controls>
-  <source src="assets/portfolio_experience.mp4" type="video/mp4">
-  Votre navigateur ne supporte pas la vidéo.
-</video>
+
+![Experience Demo](assets/portfolio_experience.gif)
 
 ## Skills
-<video width="600" controls>
-  <source src="assets/portfolio_skills.mp4" type="video/mp4">
-  Votre navigateur ne supporte pas la vidéo.
-</video>
 
+![Experience Demo](assets/portfolio_skills.gif)
 
 ## Projects
-<video width="600" controls>
-  <source src="assets/portfolio_Projects.mp4" type="video/mp4">
-  Votre navigateur ne supporte pas la vidéo.
-</video>
+
+![Experience Demo](assets/portfolio_Projects.gif)
 
 ## Education
-<video width="600" controls>
-  <source src="assets/portfolio_education.mp4" type="video/mp4">
-  Votre navigateur ne supporte pas la vidéo.
-</video>
+
+![Experience Demo](assets/portfolio_education.gif)
+
 
 
 # Guide: Running the Project with React (Vite)

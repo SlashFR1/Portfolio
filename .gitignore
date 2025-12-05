@@ -19,4 +19,4 @@ docker-compose.yml
 .git
 
 # Ignorer le fichier d'environnement (si vous le gérez via Docker)
-.env
+.envnext/.DS_Store
