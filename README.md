@@ -1,24 +1,24 @@
 # Portfolio
 Passionate and driven Graduate Student currently pursuing a Master of Science in Computer Science and Computer Engineering at ESEO. This profile serves as a repository for my academic work, personal technical projects, and contributions to open source.
 
-![Experience Demo](assets/portfolio_intro.gif)
+![Experience Demo](app/assets/portfolio_intro.gif)
 # Showing
 
 ## Experience
 
-![Experience Demo](assets/portfolio_experience.gif)
+![Experience Demo](app/assets/portfolio_experience.gif)
 
 ## Skills
 
-![Experience Demo](assets/portfolio_skills.gif)
+![Experience Demo](app/assets/portfolio_skills.gif)
 
 ## Projects
 
-![Experience Demo](assets/portfolio_Projects.gif)
+![Experience Demo](app/assets/portfolio_Projects.gif)
 
 ## Education
 
-![Experience Demo](assets/portfolio_education.gif)
+![Experience Demo](app/assets/portfolio_education.gif)
 
 
 
