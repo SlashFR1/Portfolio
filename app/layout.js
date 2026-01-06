@@ -14,6 +14,9 @@ export const metadata = {
   title: "Portfolio of Louis BAFFOUR - Computer Science Engineer",
   description:
     "Portfolio of Louis BAFFOUR, a versatile Engineering student specializing in Computer Science and Electronics. Passionate about AI/ML, Embedded Systems, and innovative software development.",
+  icons: {
+    icon: "/profile.png",
+  },
 };
 
 export default function RootLayout({ children }) {

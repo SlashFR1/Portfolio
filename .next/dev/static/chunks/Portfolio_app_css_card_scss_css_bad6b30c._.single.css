@@ -1,0 +1,91 @@
+/* [project]/Portfolio/app/css/card.scss.css [app-client] (css) */
+.glow-container {
+  --spread: 60;
+}
+
+.glow-card {
+  --active: .15;
+  --start: 0;
+  background-color: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  transition: all .3s;
+}
+
+.glow-card:is(:hover, :focus-visible) {
+  z-index: 2;
+  background-color: #333;
+  border-color: #6b7280;
+  box-shadow: 0 0 20px #6b72801a;
+}
+
+.glows {
+  pointer-events: none;
+  filter: blur(calc(var(--blur) * 1px));
+  position: absolute;
+  inset: 0;
+}
+
+.glows:after, .glows:before {
+  --alpha: 0;
+  content: "";
+  -webkit-mask: linear-gradient(#0000, #0000), conic-gradient(from calc((var(--start)  - var(--spread) * .5) * 1deg), #000 0deg, #fff, #0000 calc(var(--spread) * 1deg));
+  -webkit-mask: linear-gradient(#0000, #0000), conic-gradient(from calc((var(--start)  - var(--spread) * .5) * 1deg), #000 0deg, #fff, #0000 calc(var(--spread) * 1deg));
+  mask: linear-gradient(#0000, #0000), conic-gradient(from calc((var(--start)  - var(--spread) * .5) * 1deg), #000 0deg, #fff, #0000 calc(var(--spread) * 1deg));
+  -webkit-mask-composite: source-in, xor;
+  opacity: var(--active);
+  background: conic-gradient(from 180deg at 50% 70%, #6b7280 0deg, #4b5563 72deg, #6b7280 144deg, #555 216deg, #6b7280 288deg, #d4d4d4 1turn) fixed;
+  border: 8px solid #0000;
+  border-radius: 12px;
+  transition: opacity 1s;
+  position: absolute;
+  inset: -5px;
+  -webkit-mask-clip: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.glow-card:before {
+  content: "";
+  pointer-events: none;
+  -webkit-mask: linear-gradient(#0000, #0000), conic-gradient(from calc((var(--start)  + var(--spread) * .25 - var(--spread) * 1.5) * 1deg), #ffffff26 0deg, white, #ffffff26 calc(var(--spread) * 2.5deg));
+  -webkit-mask: linear-gradient(#0000, #0000), conic-gradient(from calc((var(--start)  + var(--spread) * .25 - var(--spread) * 1.5) * 1deg), #ffffff26 0deg, white, #ffffff26 calc(var(--spread) * 2.5deg));
+  mask: linear-gradient(#0000, #0000), conic-gradient(from calc((var(--start)  + var(--spread) * .25 - var(--spread) * 1.5) * 1deg), #ffffff26 0deg, white, #ffffff26 calc(var(--spread) * 2.5deg));
+  -webkit-mask-composite: source-in, xor;
+  opacity: var(--active);
+  background: #6b7280 fixed;
+  border: 2px solid #0000;
+  border-radius: 12px;
+  transition: opacity 1s;
+  position: absolute;
+  inset: 0;
+  -webkit-mask-clip: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.glow-card:after {
+  --bg-size: 100%;
+  content: "";
+  pointer-events: none;
+  opacity: var(--active, 0);
+  --alpha: 0;
+  -webkit-mask: linear-gradient(#0000, #0000), conic-gradient(from calc((var(--start)  + var(--spread) * .25 - var(--spread) * .5) * 1deg), #0000 0deg, #fff, #0000 calc(var(--spread) * .5deg));
+  -webkit-mask: linear-gradient(#0000, #0000), conic-gradient(from calc((var(--start)  + var(--spread) * .25 - var(--spread) * .5) * 1deg), #0000 0deg, #fff, #0000 calc(var(--spread) * .5deg));
+  mask: linear-gradient(#0000, #0000), conic-gradient(from calc((var(--start)  + var(--spread) * .25 - var(--spread) * .5) * 1deg), #0000 0deg, #fff, #0000 calc(var(--spread) * .5deg));
+  filter: brightness(1.5);
+  -webkit-mask-composite: source-in, xor;
+  background: conic-gradient(from 180deg at 50% 70%, #6b7280 0deg, #4b5563 72deg, #6b7280 144deg, #555 216deg, #6b7280 288deg, #d4d4d4 1turn) fixed;
+  border: 2px solid #0000;
+  border-radius: 12px;
+  transition: opacity 1s;
+  position: absolute;
+  inset: 0;
+  -webkit-mask-clip: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+/*# sourceMappingURL=Portfolio_app_css_card_scss_css_bad6b30c._.single.css.map*/

@@ -1,0 +1,326 @@
+/* [project]/Portfolio/app/css/carousel-simple.scss.css [app-client] (css) */
+.carousel-container {
+  width: 100%;
+  padding: 2rem 0;
+  position: relative;
+  overflow: visible;
+}
+
+.carousel-container .carousel-wrapper {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 1rem;
+  display: flex;
+  position: relative;
+  overflow-x: auto;
+}
+
+.carousel-container .carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-container .carousel-wrapper {
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-item {
+  cursor: pointer;
+  background: linear-gradient(135deg, #1f1f1f 0%, #2a2a2a 100%);
+  border: 1px solid #8b5cf633;
+  border-radius: 12px;
+  flex-direction: column;
+  flex: 0 0 350px;
+  gap: 1rem;
+  min-width: 350px;
+  height: auto;
+  min-height: 400px;
+  padding: 2rem;
+  transition: all .4s ease-in-out;
+  display: flex;
+  position: relative;
+  box-shadow: 0 0 20px #8b5cf61a, inset 0 0 20px #8b5cf60d;
+}
+
+.carousel-item:hover {
+  border-color: #8b5cf680;
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px #8b5cf64d, 0 0 60px #8b5cf633, inset 0 0 20px #8b5cf61a;
+}
+
+.carousel-item .carousel-item-header {
+  flex-shrink: 0;
+  gap: .5rem;
+  margin-bottom: .5rem;
+  display: flex;
+}
+
+.carousel-item .carousel-item-header .browser-dot {
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+.carousel-item .carousel-item-header .browser-dot.red {
+  background: #ef4444;
+}
+
+.carousel-item .carousel-item-header .browser-dot.yellow {
+  background: #eab308;
+}
+
+.carousel-item .carousel-item-header .browser-dot.green {
+  background: #22c55e;
+}
+
+.carousel-item .carousel-item-header .project-title {
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  word-break: break-word;
+  margin-left: auto;
+  font-size: .875rem;
+}
+
+.carousel-item .carousel-item-body {
+  flex-direction: column;
+  flex: 1;
+  gap: .75rem;
+  max-height: 600px;
+  padding-right: .5rem;
+  display: flex;
+  overflow-y: auto;
+}
+
+.carousel-item .carousel-item-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.carousel-item .carousel-item-body::-webkit-scrollbar-track {
+  background: #8b5cf60d;
+  border-radius: 10px;
+}
+
+.carousel-item .carousel-item-body::-webkit-scrollbar-thumb {
+  background: #8b5cf633;
+  border-radius: 10px;
+}
+
+.carousel-item .carousel-item-body::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf64d;
+}
+
+.carousel-item .carousel-item-body .project-role {
+  color: #8b5cf6;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  flex-shrink: 0;
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+.carousel-item .carousel-item-body .project-description {
+  color: #d1d5db;
+  word-break: break-word;
+  font-size: .875rem;
+  line-height: 1.5;
+}
+
+.carousel-item .carousel-item-body .project-technologies {
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  gap: .5rem;
+  display: flex;
+}
+
+.carousel-item .carousel-item-body .project-technologies .tech-tag {
+  color: #8b5cf6;
+  white-space: nowrap;
+  background: #8b5cf61a;
+  border: 1px solid #8b5cf64d;
+  border-radius: 20px;
+  flex-shrink: 0;
+  padding: .35rem .75rem;
+  font-size: .75rem;
+  transition: all .4s ease-in-out;
+}
+
+.carousel-item .carousel-item-body .project-technologies .tech-tag:hover {
+  background: #8b5cf633;
+  border-color: #8b5cf680;
+}
+
+.carousel-item .carousel-item-footer {
+  flex-shrink: 0;
+  gap: .75rem;
+  margin-top: auto;
+  padding-top: .5rem;
+  display: flex;
+}
+
+.carousel-item .carousel-item-footer a {
+  color: #8b5cf6;
+  white-space: nowrap;
+  background: #8b5cf61a;
+  border: 1px solid #8b5cf64d;
+  border-radius: 6px;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem;
+  font-size: .75rem;
+  text-decoration: none;
+  transition: all .4s ease-in-out;
+  display: flex;
+}
+
+.carousel-item .carousel-item-footer a:hover {
+  background: #8b5cf633;
+  box-shadow: 0 0 15px #8b5cf633;
+}
+
+.carousel-controls {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  display: flex;
+}
+
+.carousel-nav-button {
+  color: #8b5cf6;
+  cursor: pointer;
+  background: linear-gradient(135deg, #8b5cf633 0%, #8b5cf61a 100%);
+  border: 1px solid #8b5cf666;
+  border-radius: 6px;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem 1rem;
+  font-size: .875rem;
+  font-weight: 500;
+  transition: all .4s ease-in-out;
+  display: flex;
+}
+
+.carousel-nav-button:hover {
+  background: linear-gradient(135deg, #8b5cf666 0%, #8b5cf64d 100%);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #8b5cf64d;
+}
+
+.carousel-nav-button:active {
+  transform: scale(.95);
+}
+
+.carousel-indicators {
+  align-items: center;
+  gap: .5rem;
+  display: flex;
+}
+
+.carousel-indicators .indicator {
+  cursor: pointer;
+  background: #8b5cf633;
+  border: 1px solid #8b5cf666;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  transition: all .4s ease-in-out;
+}
+
+.carousel-indicators .indicator.active {
+  background: #8b5cf6;
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 0 10px #8b5cf699;
+}
+
+.carousel-indicators .indicator:hover {
+  background: #8b5cf680;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 280px;
+    height: 350px;
+    padding: 1.5rem;
+  }
+
+  .carousel-item .carousel-item-header .project-title {
+    font-size: .75rem;
+  }
+
+  .carousel-item .carousel-item-body .project-description {
+    font-size: .8rem;
+  }
+
+  .carousel-nav-button {
+    padding: .4rem .8rem;
+    font-size: .75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-item {
+    width: 240px;
+    height: 300px;
+    padding: 1rem;
+  }
+
+  .carousel-item .carousel-item-body {
+    gap: .75rem;
+  }
+
+  .carousel-controls {
+    gap: .5rem;
+    margin-top: 1.5rem;
+  }
+
+  .carousel-nav-button {
+    padding: .35rem .6rem;
+    font-size: .7rem;
+  }
+
+  .carousel-indicators {
+    gap: .3rem;
+  }
+
+  .carousel-indicators .indicator {
+    width: 6px;
+    height: 6px;
+  }
+
+  .carousel-indicators .indicator.active {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 20px #8b5cf61a, inset 0 0 20px #8b5cf60d;
+  }
+
+  50% {
+    box-shadow: 0 0 30px #8b5cf633, inset 0 0 20px #8b5cf614;
+  }
+
+  100% {
+    box-shadow: 0 0 20px #8b5cf61a, inset 0 0 20px #8b5cf60d;
+  }
+}
+
+.carousel-item {
+  animation: 3s ease-in-out infinite glowPulse;
+}
+
+.carousel-item:hover {
+  animation: none;
+}
+
+/*# sourceMappingURL=Portfolio_app_css_carousel-simple_scss_css_bad6b30c._.single.css.map*/

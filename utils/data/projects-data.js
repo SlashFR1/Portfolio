@@ -34,5 +34,24 @@ export const projectsData = [
         role: 'Writer / Orator',
         code: '',
         demo: '',
-    }
+    },
+       {
+        id: 5,
+        name: 'PlayWithLouis – Interactive Mobile Game',
+        description: "An interactive mobile-friendly web game featuring various mini-games, puzzles, and racing challenges. Designed for fun moments with friends, it offers a quick and engaging experience with optimized touch interactions and local score tracking.",
+        tools: ['HTML5', 'CSS3', 'JavaScript', 'GitHub Pages', 'Responsive Design'],
+        role: 'Game Developer / Designer',
+        code: 'https://github.com/slashfr1/jouonsAvecLouis',
+        demo: 'https://slashfr1.github.io/jouonsAvecLouis',
+    },
+        {
+        id: 7, 
+        name: 'PDF to LaTeX Converter',
+        description: "A full-stack web application that converts PDF documents into LaTeX format. It features a modern UI built with React and a robust Python-powered backend for document processing and conversion.",
+        tools: ['Next.js', 'TypeScript', 'Python', 'TailwindCSS', 'shadcn/ui'],
+        role: 'Fullstack Developer',
+        code: 'https://github.com/slashfr1/pdf-to-latex', 
+        demo: 'https://pdf-to-latex-converter-hiirie93w-slashfr1s-projects.vercel.app/', 
+    },
+
 ];

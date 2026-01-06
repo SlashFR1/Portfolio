@@ -21,7 +21,7 @@ $card-height: 400px;
   .carousel-wrapper {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -49,7 +49,7 @@ $card-height: 400px;
 .carousel-item {
   position: relative;
   flex: 0 0 $card-width;
-  height: $card-height;
+  min-height: $card-height;
   min-width: $card-width;
   border-radius: 12px;
   background: linear-gradient(135deg, #1f1f1f 0%, #2a2a2a 100%);
@@ -60,6 +60,7 @@ $card-height: 400px;
   gap: 1rem;
   transition: all $transition-duration ease-in-out;
   cursor: pointer;
+  height: auto;
 
   /* Glow effect léger */
   box-shadow: 
@@ -80,6 +81,7 @@ $card-height: 400px;
     display: flex;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
+    flex-shrink: 0;
 
     .browser-dot {
       width: 12px;
@@ -103,6 +105,7 @@ $card-height: 400px;
       margin-left: auto;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      word-break: break-word;
     }
   }
 
@@ -111,7 +114,29 @@ $card-height: 400px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
+    overflow-y: auto;
+    max-height: 600px;
+    padding-right: 0.5rem;
+
+    /* Custom scrollbar styling */
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(139, 92, 246, 0.05);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(139, 92, 246, 0.2);
+      border-radius: 10px;
+
+      &:hover {
+        background: rgba(139, 92, 246, 0.3);
+      }
+    }
 
     .project-role {
       font-size: 0.75rem;
@@ -119,28 +144,32 @@ $card-height: 400px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      flex-shrink: 0;
     }
 
     .project-description {
       font-size: 0.875rem;
       color: #d1d5db;
-      line-height: 1.6;
-      flex-grow: 1;
+      line-height: 1.5;
+      word-break: break-word;
     }
 
     .project-technologies {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
+      flex-shrink: 0;
 
       .tech-tag {
         font-size: 0.75rem;
-        padding: 0.25rem 0.75rem;
+        padding: 0.35rem 0.75rem;
         background: rgba(139, 92, 246, 0.1);
         color: #8b5cf6;
         border: 1px solid rgba(139, 92, 246, 0.3);
         border-radius: 20px;
         transition: all $transition-duration ease-in-out;
+        white-space: nowrap;
+        flex-shrink: 0;
 
         &:hover {
           background: rgba(139, 92, 246, 0.2);
@@ -154,7 +183,9 @@ $card-height: 400px;
   .carousel-item-footer {
     display: flex;
     gap: 0.75rem;
+    flex-shrink: 0;
     margin-top: auto;
+    padding-top: 0.5rem;
 
     a {
       flex: 1;
@@ -170,6 +201,7 @@ $card-height: 400px;
       font-size: 0.75rem;
       transition: all $transition-duration ease-in-out;
       text-decoration: none;
+      white-space: nowrap;
 
       &:hover {
         background: rgba(139, 92, 246, 0.2);
