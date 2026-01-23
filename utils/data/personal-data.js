@@ -10,5 +10,4 @@ export const personalData = {
   linkedIn: 'https://www.linkedin.com/in/louis-baffour/',
   devUsername: "SlashFR1",
   resume: '/Louis_BAFFOUR_resume25.pdf',
-
 }
